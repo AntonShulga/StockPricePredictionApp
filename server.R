@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
         
   dataInput <- reactive({
     data <- as.data.frame(getSymbols(input$symb, src = "yahoo", 
-      from = as.character(Sys.Date()-input$mLearn*30-input$mPredict*30),
+      from = as.character(Sys.Date()-input$mLearn*30.5-input$mPredict*30.5),
       to = as.character(Sys.Date()),
       auto.assign = FALSE))
 
@@ -18,8 +18,8 @@ shinyServer(function(input, output) {
     
     ts1 <- ts(data, frequency = 12)
     
-    ts1Train <- window(ts1, start = 1, end = (input$mLearn-1)/12)
-    ts1Test <- window(ts1, start = input$mLearn/12, end = length(ts1)/12-0.01)
+    ts1Train <- window(ts1, start = 1, end = (input$mLearn)/12+1-0.01)
+    ts1Test <- window(ts1, start = input$mLearn/12+1, end = length(ts1)/12+1-0.1)
     
     ets1 <- ets(ts1Train, model="MMM")
     

@@ -1,8 +1,8 @@
 name: StockPricePrediction
 account: ashulga
 server: shinyapps.io
-bundleId: 272629
+bundleId: 275130
 url: https://ashulga.shinyapps.io/StockPricePrediction
-when: 1443075914.61748
+when: 1443362752.69771
 asMultiple: FALSE
 asStatic: FALSE
